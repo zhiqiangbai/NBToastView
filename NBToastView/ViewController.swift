@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+class ViewController: UITableViewController {
+    
+    let cellArrayTitles : Array = ["默认显示","修改背景颜色","修改圆角和文字颜色",]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector:#selector(ViewController.show), userInfo: nil, repeats: true)
-        NBToastView.setTextColor(UIColor.redColor())
-        NBToastView.setBgColor(UIColor.blueColor().colorWithAlphaComponent(0.2))
-        NBToastView.showToast("这就是一个测试", duration: 2)
+        self.tableView.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
+        self.tableView.rowHeight = 55.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,8 +25,43 @@ class ViewController: UIViewController {
     }
 
 
-    func show() {
-        NBToastView.showToast("这就是一个测试", duration: 2)
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
     }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellArrayTitles.count
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case 0:
+            NBToastView.restoredConfig()
+            NBToastView.showToast("默认设置Toast", duration: 2)
+        case 1:
+            NBToastView.restoredConfig()
+            NBToastView.setBgColor(UIColor.orangeColor().colorWithAlphaComponent(0.6))
+            NBToastView.showToast("自定义背景色", duration: 2)
+        case 2:
+            NBToastView.restoredConfig()
+            NBToastView.setCornerRadius(8)
+            NBToastView.setTextColor(UIColor.whiteColor())
+            NBToastView.showToast("修改圆角和文字颜色", duration: 2)
+            
+        default: break
+            
+        }
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")!
+      
+        cell.textLabel?.text = cellArrayTitles[indexPath.row]
+        
+        return cell
+    }
+
+    
 }
 

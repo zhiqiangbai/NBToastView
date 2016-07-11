@@ -40,7 +40,7 @@ class NBToastView : UIView {
     /// 显示文字对齐方式
     private static var sTextAlignment : NSTextAlignment = NSTextAlignment.Center
     /// 显示视图背景色
-    private static var sBackgroundColor : UIColor       = UIColor.clearColor()
+    private static var sBackgroundColor : UIColor       = UIColor.blackColor().colorWithAlphaComponent(0.5)
     /// 视图最大宽度设置
     private static var sMaxWidth : CGFloat              = 0.0
     /// 视图最大高度设置
@@ -58,7 +58,7 @@ class NBToastView : UIView {
     /// 视图显示时间
     private static var sDuration : NSTimeInterval       = TOAST_VIEW_SHOW_DURATION
     /// 视图在x秒后显示
-    private static var sDelay : NSTimeInterval          = TOAST_VIEW_SHOW_DURATION
+    private static var sDelay : NSTimeInterval          = TOAST_VIEW_SHOW_DELAY
     /**
      设置显示文字颜色<br/>
      <font color='red'>注意:一次设置,全程有效</font>
@@ -337,7 +337,7 @@ extension NBToastView{
             if toastViewHeight > NBToastView.sMaxHeight {
                 toastViewHeight = NBToastView.sMaxHeight;
             }
-            let viewDicts = ["toastLabel":toastLabel,"toastView":toastView]// dictForViews([toastLabel,toastView])
+            let viewDicts = ["toastLabel":toastLabel,"toastView":toastView]
 
             toastView.addSubview(toastLabel)
             keyWindow.addSubview(toastView)
@@ -352,8 +352,6 @@ extension NBToastView{
 
             keyWindow.addConstraint(NSLayoutConstraint.init(item: toastView, attribute:.CenterX, relatedBy: .Equal, toItem: keyWindow, attribute: .CenterX, multiplier: 1.0, constant: 0.0))
             
-            
-
             keyWindow.layoutIfNeeded()
             
             UIView.animateWithDuration(TOAST_VIEW_SHOW_DURATION, animations: { 
@@ -375,27 +373,22 @@ extension NBToastView{
 
         }
     }
-    
-    
     /**
-     自定义生成键值对dicationary
-     - parameter objecs: 数组对象 eg:[1,2,3]
-     - returns: 键值对对象 eg:["1":1,"2":2,"3":3]
+     将所有配置清除,恢复默认设置
      */
-    class func dictForViews(objecs:[AnyObject]) -> [String : AnyObject] {
-        var count:UInt32 = 0
-        var dicts:[String : AnyObject] = [:]
-        let ivars = class_copyIvarList(self.classForCoder(), &count)
-        for i in 0 ..< Int(count){
-            let obj = object_getIvar(self, ivars[i])
-            let name = String.fromCString(ivar_getName(ivars[i]))!
-            dicts[name] = obj
-            if dicts.count == objecs.count{
-                break
-            }
-        }
-        free(ivars)
-        return dicts
+    class func restoredConfig() {
+        sTextColor       = .blackColor()
+        sTextFont        = .systemFontOfSize(17)
+        sTextAlignment   = .Center
+        sBackgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        sMaxWidth        = 0.0
+        sMaxHeight       = 0.0
+        sMaxLines        = 1
+        sPadding         = UIEdgeInsetsZero
+        sOffsetTop       = TOAST_VIEW_OFFSET_TOP
+        sOffsetBottom    = TOAST_VIEW_OFFSET_BOTTOM
+        sCornerRadius    = 0.0
+        sDuration        = TOAST_VIEW_SHOW_DURATION
+        sDelay           = TOAST_VIEW_SHOW_DELAY
     }
-
 }
