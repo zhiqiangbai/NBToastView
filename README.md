@@ -45,6 +45,9 @@
     class func showToast(toastStr:NSString , duration:NSTimeInterval , delay:NSTimeInterval , completion:CompLetion?)
     
     当然,也提供了例如只修改显示文字,显示时间,延迟显示等单独的函数
+    调用方式就很简单了:
+    NBToastView.showToast("默认设置Toast", duration: 2)
+
 ```
 ##其他设置
  因为项目中大都是使用同一个提示背景颜色,文字颜色等配置,所以,可以将所有配置信息全部放入 Appdelegate 文件中,一次配置,终身受用!
@@ -56,3 +59,4 @@
     class func restoredConfig()
  ```
  此函数用于清除之前配置的属性,恢复为默认的属性.
+
