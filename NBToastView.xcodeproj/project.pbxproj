@@ -14,7 +14,7 @@
 		440087561D2F973F0074372C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 440087541D2F973F0074372C /* LaunchScreen.storyboard */; };
 		440087611D2F973F0074372C /* NBToastViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440087601D2F973F0074372C /* NBToastViewTests.swift */; };
 		4400876C1D2F973F0074372C /* NBToastViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4400876B1D2F973F0074372C /* NBToastViewUITests.swift */; };
-		4400877B1D2F97630074372C /* NBToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4400877A1D2F97630074372C /* NBToastView.swift */; };
+		4400877B1D2F97630074372C /* NBToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4400877A1D2F97630074372C /* NBToast.swift */; };
 		44E652611D333D6F0012570B /* test.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44E652601D333D6F0012570B /* test.gif */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,7 @@
 		440087671D2F973F0074372C /* NBToastViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBToastViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4400876B1D2F973F0074372C /* NBToastViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBToastViewUITests.swift; sourceTree = "<group>"; };
 		4400876D1D2F973F0074372C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4400877A1D2F97630074372C /* NBToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NBToastView.swift; path = View/NBToastView.swift; sourceTree = "<group>"; };
+		4400877A1D2F97630074372C /* NBToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NBToast.swift; path = View/NBToast.swift; sourceTree = "<group>"; };
 		44E652601D333D6F0012570B /* test.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = test.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				44E6525F1D333D480012570B /* Resource */,
-				440087791D2F97470074372C /* View */,
+				440087791D2F97470074372C /* Toast */,
 				4400874B1D2F973F0074372C /* AppDelegate.swift */,
 				4400874D1D2F973F0074372C /* ViewController.swift */,
 				4400874F1D2F973F0074372C /* Main.storyboard */,
@@ -131,12 +131,12 @@
 			path = NBToastViewUITests;
 			sourceTree = "<group>";
 		};
-		440087791D2F97470074372C /* View */ = {
+		440087791D2F97470074372C /* Toast */ = {
 			isa = PBXGroup;
 			children = (
-				4400877A1D2F97630074372C /* NBToastView.swift */,
+				4400877A1D2F97630074372C /* NBToast.swift */,
 			);
-			name = View;
+			name = Toast;
 			sourceTree = "<group>";
 		};
 		44E6525F1D333D480012570B /* Resource */ = {
@@ -215,13 +215,17 @@
 				TargetAttributes = {
 					440087471D2F973E0074372C = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VE48QCP5YY;
+						LastSwiftMigration = 0820;
 					};
 					4400875B1D2F973F0074372C = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 440087471D2F973E0074372C;
 					};
 					440087661D2F973F0074372C = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 440087471D2F973E0074372C;
 					};
 				};
@@ -279,7 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4400877B1D2F97630074372C /* NBToastView.swift in Sources */,
+				4400877B1D2F97630074372C /* NBToast.swift in Sources */,
 				4400874E1D2F973F0074372C /* ViewController.swift in Sources */,
 				4400874C1D2F973F0074372C /* AppDelegate.swift in Sources */,
 			);
@@ -423,10 +427,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VE48QCP5YY;
 				INFOPLIST_FILE = NBToastView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.napoleonbai.NBToastView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -434,10 +440,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VE48QCP5YY;
 				INFOPLIST_FILE = NBToastView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.napoleonbai.NBToastView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -449,6 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.napoleonbai.NBToastViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NBToastView.app/NBToastView";
 			};
 			name = Debug;
@@ -461,6 +470,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.napoleonbai.NBToastViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NBToastView.app/NBToastView";
 			};
 			name = Release;
@@ -472,6 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.napoleonbai.NBToastViewUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = NBToastView;
 			};
 			name = Debug;
@@ -483,6 +494,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.napoleonbai.NBToastViewUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = NBToastView;
 			};
 			name = Release;
